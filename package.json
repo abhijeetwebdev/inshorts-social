@@ -1,5 +1,5 @@
 {
-  "name": "Inshorts-Social",
+  "name": "inshorts-social",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,5 +17,8 @@
     "tslib": "^2.7.0",
     "typescript": "^5.5.3",
     "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "svelte-routing": "^2.13.0"
   }
 }
