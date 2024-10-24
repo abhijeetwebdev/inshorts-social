@@ -18,3 +18,17 @@ export const transformResponseData = (
     category_names: item.news_obj.category_names,
   }))
 }
+
+// transforming array to grouped array
+export const chunkArray = (
+  array: NewsArticle[],
+  size: number
+): NewsArticle[][] => {
+  return array.reduce<NewsArticle[][]>((acc, _, index) => {
+    if (index % size === 0) {
+      acc.push([])
+    }
+    acc[acc.length - 1].push(array[index])
+    return acc
+  }, [])
+}
