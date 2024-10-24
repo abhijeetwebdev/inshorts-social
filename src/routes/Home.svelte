@@ -11,8 +11,10 @@
   let groupedNews: NewsArticle[][] = []
 
   onMount(() => {
-    // loading news when component is ready
-    fetchNews()
+    if (!appState.loading && appState.news.length == 0) {
+      // loading news when component is ready
+      fetchNews()
+    }
   })
 
   // reactive vars
@@ -45,12 +47,24 @@
       {#each groupedNews as group}
         <div class="grid gap-4">
           {#each group as item}
-            <Link to="/news/{item.hash_id}">
-              <NewsCard bind:news={item}></NewsCard>
-            </Link>
+            <div class="card-wrapper">
+              <Link to="/news/{item.hash_id}">
+                <NewsCard bind:news={item}></NewsCard>
+              </Link>
+            </div>
           {/each}
         </div>
       {/each}
     {/if}
   </div>
 </div>
+
+<style>
+  .card-wrapper {
+    transition: transform 0.2s;
+  }
+
+  .card-wrapper:hover {
+    transform: scale(1.02);
+  }
+</style>

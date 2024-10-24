@@ -36,3 +36,7 @@ export interface NewsArticle {
   image_url: string
   category_names: string[]
 }
+
+export interface NewsParams {
+  id: string
+}

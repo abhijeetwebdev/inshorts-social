@@ -12,7 +12,7 @@
     text-align: center;
     position: fixed;
     color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 100%;
     bottom: 0;
   }
