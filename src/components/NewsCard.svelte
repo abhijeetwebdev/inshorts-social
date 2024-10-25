@@ -1,9 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { fbBaseUrl } from '../constants'
   import type { NewsArticle } from '../interfaces/appInterfaces'
   export let news: NewsArticle
 
-  onMount(() => {})
+  onMount(() => {
+    window.fbAsyncInit()
+  })
 </script>
 
 <div class="card mt-4">
@@ -12,10 +15,31 @@
     style="background-image: url('{news.image_url}');"
     aria-label={news.title}
   ></div>
-  <div class="content-wrapper">
+  <div class="content-wrapper scrollable overflow-y-auto">
     <!-- <img src={news.image_url} alt="Image: {news.title}" /> -->
     <h3 class="pt-2"><strong>{news.title}</strong></h3>
     <p class="pt-2">{news.content}</p>
+
+    <!-- FB like and comment -->
+    <div class="mt-4">
+      <hr class="my-2" />
+      <div
+        class="fb-like"
+        data-href="{fbBaseUrl}/news/{news.hash_id}"
+        data-width=""
+        data-layout="standard"
+        data-action="like"
+        data-size="small"
+        data-share="false"
+      ></div>
+
+      <div
+        class="fb-comments"
+        data-href="{fbBaseUrl}/news/{news.hash_id}"
+        data-width=""
+        data-numposts="5"
+      ></div>
+    </div>
   </div>
 </div>
 
@@ -31,6 +55,10 @@
     display: flex;
   }
 
+  hr {
+    margin: 1rem auto;
+  }
+
   .image-wrapper {
     height: 300px;
     width: 40%;
@@ -38,7 +66,9 @@
   }
 
   .content-wrapper {
+    /* min-height: 300px; */
     height: 300px;
+    overflow-y: auto;
     width: 60%;
     padding: 0 0 0 1rem;
   }

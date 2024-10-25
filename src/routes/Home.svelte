@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
+  import { Link } from 'svelte-routing'
   import appStore, { fetchNews } from '../store/appStore'
   import type { AppState } from '../interfaces/appInterfaces'
   import PreloaderCard from '../components/PreloaderCard.svelte'
@@ -30,7 +31,9 @@
     {/each}
   {:else}
     {#each appState.news as item}
-      <NewsCard bind:news={item}></NewsCard>
+      <Link to="/news/{item.hash_id}">
+        <NewsCard bind:news={item}></NewsCard>
+      </Link>
     {/each}
   {/if}
 </div>

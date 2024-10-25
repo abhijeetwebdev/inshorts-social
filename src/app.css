@@ -3,9 +3,36 @@
 @tailwind utilities;
 
 .container {
-  width: 900px;
+  /* width: 960px; */
+  width: 1024px;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+/* WebKit scrollbar styling for macOS look */
+::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+  height: 8px; /* Thin horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /* Light track */
+  border-radius: 10px; /* Rounded track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5); /* Darker thumb */
+  border-radius: 10px; /* Rounded thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.7); /* Darker thumb on hover */
+}
+
+/* Firefox scrollbar styling */
+.scrollable {
+  scrollbar-width: thin; /* Thin scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.1); /* Thumb color and track color */
 }
