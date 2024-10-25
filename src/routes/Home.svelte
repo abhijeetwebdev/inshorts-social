@@ -36,9 +36,9 @@
       <PreloaderCard></PreloaderCard>
     {/each}
   {:else}
-    {#each appState.news as item}
-      <Link to="/news/{item.hash_id}">
-        <NewsCard bind:news={item}></NewsCard>
+    {#each appState.news as newsArticle}
+      <Link to="/news/{newsArticle.hashID}">
+        <NewsCard bind:newsArticle></NewsCard>
       </Link>
     {/each}
   {/if}

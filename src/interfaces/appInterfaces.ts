@@ -27,14 +27,14 @@ export interface NewsAPIRespArticle {
 }
 
 export interface NewsArticle {
-  hash_id: string
+  hashID: string
   title: string
-  author_name: string
+  authorName: string
   content: string
-  source_url: string
-  source_name: string
-  image_url: string
-  category_names: string[]
+  sourceURL: string
+  sourceName: string
+  imageURL: string
+  categoryNames: string[]
 }
 
 export interface NewsParams {

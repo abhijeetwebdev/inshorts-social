@@ -1,26 +1,26 @@
 <script lang="ts">
   import { fbBaseUrl } from '../constants'
   import type { NewsArticle } from '../interfaces/appInterfaces'
-  export let news: NewsArticle
+  export let newsArticle: NewsArticle
 </script>
 
 <div class="card mt-4">
   <div
     class="image-wrapper h-40 bg-cover bg-center rounded-t-md"
-    style="background-image: url('{news.image_url}');"
-    aria-label={news.title}
+    style="background-image: url('{newsArticle.imageURL}');"
+    aria-label={newsArticle.title}
   ></div>
   <div class="content-wrapper scrollable overflow-y-auto">
-    <!-- <img src={news.image_url} alt="Image: {news.title}" /> -->
-    <h3 class="pt-2"><strong>{news.title}</strong></h3>
-    <p class="pt-2">{news.content}</p>
+    <!-- <img src={news.imageURL} alt="Image: {news.title}" /> -->
+    <h3 class="pt-2"><strong>{newsArticle.title}</strong></h3>
+    <p class="pt-2">{newsArticle.content}</p>
 
     <!-- FB like and comment -->
     <div class="mt-4">
       <hr class="my-2" />
       <div
         class="fb-like"
-        data-href="{fbBaseUrl}/news/{news.hash_id}"
+        data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
         data-width=""
         data-layout="standard"
         data-action="like"
@@ -30,7 +30,7 @@
 
       <div
         class="fb-comments"
-        data-href="{fbBaseUrl}/news/{news.hash_id}"
+        data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
         data-width=""
         data-numposts="5"
       ></div>

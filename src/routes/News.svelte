@@ -22,9 +22,9 @@
       appState = value
 
       if (appState.news.length > 0) {
-        // find the news by hash_id
+        // find the news by hashID
         newsArticle =
-          appState.news.find((item) => item.hash_id === params.id) || null
+          appState.news.find((item) => item.hashID === params.id) || null
         if (!newsArticle) navigate('/')
       } else {
         navigate('/')
@@ -36,7 +36,7 @@
 <div class="container mx-md m-auto">
   <div class="grid mb-16">
     {#if newsArticle}
-      <NewsCard news={newsArticle}></NewsCard>
+      <NewsCard {newsArticle}></NewsCard>
     {/if}
   </div>
 </div>
