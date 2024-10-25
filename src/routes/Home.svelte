@@ -7,6 +7,7 @@
   import NewsCard from '../components/NewsCard.svelte'
 
   let appState: AppState
+  let isFBLoaded = false
 
   onMount(() => {
     if (!appState.loading && appState.news.length == 0) {
@@ -20,6 +21,11 @@
     // reading the app state updates
     appStore.subscribe((value) => {
       appState = value
+
+      if (appState.news.length > 0 && !isFBLoaded) {
+        window.fbAsyncInit()
+        isFBLoaded = true
+      }
     })
   }
 </script>

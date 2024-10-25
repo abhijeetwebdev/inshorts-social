@@ -1,12 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
   import { fbBaseUrl } from '../constants'
   import type { NewsArticle } from '../interfaces/appInterfaces'
   export let news: NewsArticle
-
-  onMount(() => {
-    window.fbAsyncInit()
-  })
 </script>
 
 <div class="card mt-4">

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { navigate } from 'svelte-routing'
   import NewsCard from '../components/NewsCard.svelte'
   import type {
@@ -11,6 +12,10 @@
   export let params: NewsParams
   let appState: AppState
   let newsArticle: NewsArticle | null
+
+  onMount(() => {
+    window.fbAsyncInit()
+  })
 
   $: {
     appStore.subscribe((value) => {
