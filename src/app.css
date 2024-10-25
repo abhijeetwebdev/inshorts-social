@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.container {
+  width: 900px;
+}
+
 .pointer {
   cursor: pointer;
 }
