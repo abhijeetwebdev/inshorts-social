@@ -23,23 +23,23 @@
       appState = value
 
       if (appState.news.length > 0 && !isFBLoaded) {
-        window.fbAsyncInit()
-        isFBLoaded = true
+        // window.fbAsyncInit()
+        // isFBLoaded = true
       }
     })
   }
 </script>
 
-<div class="container mx-md m-auto p-5">
+<div class="container mx-md m-auto p-5 pt-0 mb-16">
   {#if appState.loading}
     {#each Array(20) as _}
       <PreloaderCard></PreloaderCard>
     {/each}
   {:else}
     {#each appState.news as newsArticle}
-      <Link to="/news/{newsArticle.hashID}">
-        <NewsCard bind:newsArticle></NewsCard>
-      </Link>
+      <!-- <Link to="/news/{newsArticle.hashID}"> -->
+      <NewsCard bind:newsArticle></NewsCard>
+      <!-- </Link> -->
     {/each}
   {/if}
 </div>

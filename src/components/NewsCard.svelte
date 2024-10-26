@@ -4,60 +4,57 @@
   export let newsArticle: NewsArticle
 </script>
 
-<div class="card mt-4">
-  <div
-    class="image-wrapper h-40 bg-cover bg-center rounded-t-md"
-    style="background-image: url('{newsArticle.imageURL}');"
-    aria-label={newsArticle.title}
-  ></div>
-  <div class="content-wrapper scrollable overflow-y-auto">
-    <!-- <img src={news.imageURL} alt="Image: {news.title}" /> -->
-    <h3 class="pt-2"><strong>{newsArticle.title}</strong></h3>
-    <p class="pt-2">{newsArticle.content}</p>
-
-    <!-- FB like and comment -->
-    <div class="mt-4">
-      <hr class="my-2" />
-      <div
-        class="fb-like"
-        data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
-        data-width=""
-        data-layout="standard"
-        data-action="like"
-        data-size="small"
-        data-share="false"
-      ></div>
-
-      <div
-        class="fb-comments"
-        data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
-        data-width=""
-        data-numposts="5"
-      ></div>
+<div class="card mt-8">
+  <div class="card flex card-wrapper">
+    <div
+      class="image-wrapper bg-cover bg-center rounded-l-md"
+      style="background-image: url('{newsArticle.imageURL}');"
+      aria-label={newsArticle.title}
+    ></div>
+    <div class="content-wrapper w-3/5 p-4">
+      <h3 class="pt-2"><strong>{newsArticle.title}</strong></h3>
+      <p class="pt-2">{newsArticle.content}</p>
     </div>
+  </div>
+  <!-- FB like and comment -->
+  <div class="fb-wrapper">
+    <div
+      class="fb-like"
+      data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
+      data-layout="standard"
+      data-action="like"
+      data-size="small"
+      data-share="false"
+      data-width="100%"
+    ></div>
+
+    <div
+      class="fb-comments"
+      data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
+      data-numposts="5"
+      data-width="100%"
+    ></div>
   </div>
 </div>
 
 <style>
   .card {
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
-    padding: 1rem;
-    background-color: white;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: auto;
-    transition: transform 0.2s;
-    display: flex;
   }
 
-  hr {
-    margin: 1rem auto;
+  .card-wrapper {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 
   .image-wrapper {
     height: 300px;
     width: 40%;
-    border-radius: 0.5rem;
+    border-radius: 0.5rem 0 0 0;
   }
 
   .content-wrapper {
@@ -65,6 +62,10 @@
     height: 300px;
     overflow-y: auto;
     width: 60%;
-    padding: 0 0 0 1rem;
+    padding: 1rem;
+  }
+
+  .fb-wrapper {
+    /* margin-top: -1rem; */
   }
 </style>
