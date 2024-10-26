@@ -23,6 +23,7 @@ export interface NewsAPIRespArticle {
     source_name: string
     image_url: string
     category_names: string[]
+    created_at: number
   }
 }
 
@@ -35,6 +36,7 @@ export interface NewsArticle {
   sourceName: string
   imageURL: string
   categoryNames: string[]
+  createdAt: string
 }
 
 export interface NewsParams {

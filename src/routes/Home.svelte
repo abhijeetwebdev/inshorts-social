@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { Link } from 'svelte-routing'
+  // import { Link } from 'svelte-routing'
   import appStore, { fetchNews } from '../store/appStore'
   import type { AppState } from '../interfaces/appInterfaces'
   import PreloaderCard from '../components/PreloaderCard.svelte'

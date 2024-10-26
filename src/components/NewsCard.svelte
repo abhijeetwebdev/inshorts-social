@@ -13,7 +13,11 @@
     ></div>
     <div class="content-wrapper w-3/5 p-4">
       <h3 class="pt-2"><strong>{newsArticle.title}</strong></h3>
+      <p class="pt-2 time">
+        {new Date(newsArticle.createdAt).toLocaleString()}
+      </p>
       <p class="pt-2">{newsArticle.content}</p>
+      <p class="pt-2 categories">{newsArticle.categoryNames.join(', ')}</p>
     </div>
   </div>
   <!-- FB like and comment -->
@@ -52,14 +56,14 @@
   }
 
   .image-wrapper {
-    height: 18rem;
+    height: 20rem;
     width: 40%;
     border-radius: 0.5rem 0 0 0;
   }
 
   .content-wrapper {
-    /* min-height: 18rem; */
-    height: 18rem;
+    /* min-height: 20rem; */
+    height: 20rem;
     overflow-y: auto;
     width: 60%;
     padding: 1rem;
@@ -67,5 +71,14 @@
 
   .fb-wrapper {
     /* margin-top: -1rem; */
+  }
+
+  .time {
+    color: grey;
+    font-style: italic;
+  }
+
+  .categories {
+    color: blue;
   }
 </style>

@@ -3,6 +3,7 @@
   <div class="content-wrapper">
     <div class="skeleton skeleton-title"></div>
     <div class="skeleton skeleton-title"></div>
+    <div class="skeleton skeleton-time"></div>
     <div class="skeleton skeleton-content"></div>
     <div class="skeleton skeleton-content"></div>
     <div class="skeleton skeleton-content"></div>
@@ -28,23 +29,34 @@
     border-radius: 0.25rem;
   }
 
-  .skeleton-content {
+  .skeleton-content,
+  .skeleton-time {
     margin: 0.5rem 0;
     height: 1rem;
     width: 100%;
   }
 
-  .skeleton-content:nth-of-type(3) {
-    margin-top: 1.5rem;
+  .skeleton-time {
+    margin-top: 1rem;
+    width: 25%;
+  }
+
+  .skeleton-content:nth-of-type(4) {
+    margin-top: 1rem;
   }
 
   .skeleton-content:nth-of-type(8) {
-    width: 45%;
+    width: 75%;
+  }
+
+  .skeleton-content:nth-of-type(9) {
+    margin-top: 1rem;
+    width: 40%;
   }
 
   .image-wrapper {
     border-radius: 0.5rem 0 0 0;
-    height: 18rem;
+    height: 20rem;
     width: 40%;
   }
 
@@ -64,7 +76,7 @@
 
   .skeleton-title:nth-of-type(2) {
     margin-top: 0.5rem;
-    width: 80%;
+    width: 50%;
   }
 
   @keyframes pulse {
