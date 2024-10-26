@@ -52,14 +52,14 @@
   }
 
   .image-wrapper {
-    height: 300px;
+    height: 18rem;
     width: 40%;
     border-radius: 0.5rem 0 0 0;
   }
 
   .content-wrapper {
-    /* min-height: 300px; */
-    height: 300px;
+    /* min-height: 18rem; */
+    height: 18rem;
     overflow-y: auto;
     width: 60%;
     padding: 1rem;

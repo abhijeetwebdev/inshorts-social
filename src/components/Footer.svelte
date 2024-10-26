@@ -2,7 +2,7 @@
   <p>
     &copy; 2024 <a href="http://www.inshorts.social" target="_blank"
       >www.inshorts.social</a
-    >. All rights reserved.
+    >
   </p>
 </footer>
 
