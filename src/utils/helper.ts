@@ -15,7 +15,8 @@ export const transformResponseData = (
     sourceURL: item.news_obj.source_url,
     sourceName: item.news_obj.source_name,
     imageURL: item.news_obj.image_url,
-    categoryNames: item.news_obj.category_names,
+    categoryNames: formattedCategories(item.news_obj.category_names),
+    createdAt: formattedDate(item.news_obj.created_at),
   }))
 }
 
@@ -31,4 +32,13 @@ export const chunkArray = (
     acc[acc.length - 1].push(array[index])
     return acc
   }, [])
+}
+
+const formattedDate = (timestamp: number): string => {
+  const localTimeString = new Date(timestamp).toLocaleString()
+  return localTimeString
+}
+
+const formattedCategories = (categories: string[]): string[] => {
+  return categories.map((cat) => `#${cat}`)
 }
