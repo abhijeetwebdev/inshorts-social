@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  // import { Link } from 'svelte-routing'
   import appStore, { fetchNews } from '../store/appStore'
-  import type { AppState } from '../interfaces/appInterfaces'
+  import type { AppState, NewsArticle } from '../interfaces/appInterfaces'
   import PreloaderCard from '../components/PreloaderCard.svelte'
-  import NewsCard from '../components/NewsCard.svelte'
+  import Carousel from '../components/Carousel.svelte'
 
+  // data for the carousel
+  let carouselItems: NewsArticle[] = []
   let appState: AppState
   let isFBLoaded = false
 
@@ -22,24 +23,23 @@
     appStore.subscribe((value) => {
       appState = value
 
+      if (appState.news) {
+        carouselItems = [...appState.news]
+      }
+
       if (appState.news.length > 0 && !isFBLoaded) {
-        // window.fbAsyncInit()
-        // isFBLoaded = true
+        window.fbAsyncInit()
+        isFBLoaded = true
+        // console.log('fbAsyncInit: Home')
       }
     })
   }
 </script>
 
-<div class="container mx-md m-auto p-5 pt-0 mb-16">
+<div class="container mx-md m-auto p-5 pt-0 mb-16 mt-8">
   {#if appState.loading}
-    {#each Array(20) as _}
-      <PreloaderCard></PreloaderCard>
-    {/each}
+    <PreloaderCard></PreloaderCard>
   {:else}
-    {#each appState.news as newsArticle}
-      <!-- <Link to="/news/{newsArticle.hashID}"> -->
-      <NewsCard bind:newsArticle></NewsCard>
-      <!-- </Link> -->
-    {/each}
+    <Carousel items={carouselItems} interval={20000} />
   {/if}
 </div>

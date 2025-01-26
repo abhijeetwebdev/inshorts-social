@@ -1,4 +1,4 @@
-<div class="card flex mt-8">
+<div class="card flex">
   <div class="skeleton image-wrapper"></div>
   <div class="content-wrapper">
     <div class="skeleton skeleton-title"></div>

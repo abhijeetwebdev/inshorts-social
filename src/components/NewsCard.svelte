@@ -4,7 +4,7 @@
   export let newsArticle: NewsArticle
 </script>
 
-<div class="card mt-8">
+<div class="card">
   <div class="card flex card-wrapper">
     <div
       class="image-wrapper bg-cover bg-center rounded-l-md"

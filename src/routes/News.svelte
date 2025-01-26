@@ -14,7 +14,7 @@
   let newsArticle: NewsArticle | null
 
   onMount(() => {
-    window.fbAsyncInit()
+    // window.fbAsyncInit()
   })
 
   $: {
