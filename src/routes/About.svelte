@@ -2,7 +2,7 @@
 <div class="container mx-auto p-6">
   <!-- Header Section -->
   <header class="text-center mb-6">
-    <h1 class="text-4xl font-bold">About</h1>
+    <h1 class="text-4xl font-bold text-gray-600">About</h1>
   </header>
 
   <!-- Project Description -->
@@ -45,7 +45,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section>
+  <section class="mb-12">
     <h2 class="text-2xl font-semibold text-gray-700 mb-4">Contact</h2>
     <p class="text-lg text-gray-600">
       For suggestions/inquiries, email: <a

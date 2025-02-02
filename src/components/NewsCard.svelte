@@ -7,7 +7,7 @@
 <div class="card">
   <div class="card flex flex-col md:flex-row card-wrapper">
     <div
-      class="image-wrapper bg-cover bg-center rounded-t-md md:rounded-l-md"
+      class="image-wrapper bg-cover bg-center bg-no-repeat rounded-t-md md:rounded-l-md"
       style="background-image: url('{newsArticle.imageURL}');"
       aria-label={newsArticle.title}
     ></div>
