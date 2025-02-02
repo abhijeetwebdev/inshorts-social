@@ -45,3 +45,8 @@ If you have state that's important to retain within a component, consider creati
 import { writable } from 'svelte/store'
 export default writable(0)
 ```
+
+## TODO
+
+- Category filters
+- Auto slide to next article

@@ -50,11 +50,13 @@
   }
 
   function resetInterval() {
-    // Reset the timer whenever `interval` or `items` change
-    if (timer) clearInterval(timer)
-    timer = setInterval(() => {
-      goToNext()
-    }, interval)
+    if (interval) {
+      // Reset the timer whenever `interval` or `items` change
+      if (timer) clearInterval(timer)
+      timer = setInterval(() => {
+        goToNext()
+      }, interval)
+    }
   }
 </script>
 

@@ -9,12 +9,12 @@
   <section class="mb-6">
     <p class="text-lg text-gray-600">
       This hobby project was created to address the need for user engagement
-      with news articles. By adding <a
+      with Inshorts news articles. By adding <a
         target="_blank"
         href="https://www.facebook.com"><strong>Facebook</strong></a
       > <strong>Like</strong> and
-      <strong>Comment</strong> features to Inshorts news, it allows users to express
-      their opinions, share reactions, and interact with others on the latest stories.
+      <strong>Comment</strong> features to news, it allows users to express their
+      opinions, share reactions, and interact with others on the latest stories.
     </p>
   </section>
 
@@ -47,7 +47,7 @@
   <section>
     <h2 class="text-2xl font-semibold text-gray-700 mb-4">Contact</h2>
     <p class="text-lg text-gray-600">
-      For inquiries, email: <a
+      For suggestions/inquiries, email: <a
         href="mailto:abhijeetwebdev@gmail.com"
         class="text-blue-500">abhijeetwebdev@gmail.com</a
       >
