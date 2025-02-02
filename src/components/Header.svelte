@@ -11,6 +11,8 @@
       </h2>
     </a>
     |
+    <a class="pointer" href="/privacy">Privacy Policy</a>
+    |
     <a class="pointer" href="/about">About</a>
   </div>
 </header>

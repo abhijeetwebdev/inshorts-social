@@ -2,16 +2,17 @@
 <div class="container mx-auto p-6">
   <!-- Header Section -->
   <header class="text-center mb-6">
-    <h1 class="text-4xl font-bold">Inshorts Social</h1>
+    <h1 class="text-4xl font-bold">About</h1>
   </header>
 
   <!-- Project Description -->
   <section class="mb-6">
     <p class="text-lg text-gray-600">
-      This hobby project was created to address the need for user engagement
-      with Inshorts news articles. By adding <a
-        target="_blank"
-        href="https://www.facebook.com"><strong>Facebook</strong></a
+      <strong>Inshorts Social</strong> is a hobby project that is created to
+      address the need for user engagement with Inshorts news articles. By
+      adding
+      <a target="_blank" href="https://www.facebook.com"
+        ><strong>Facebook</strong></a
       > <strong>Like</strong> and
       <strong>Comment</strong> features to news, it allows users to express their
       opinions, share reactions, and interact with others on the latest stories.
