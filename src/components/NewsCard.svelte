@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { fbBaseUrl } from '../constants'
+  import { fbBaseUrl } from '../utils/constants'
   import type { NewsArticle } from '../interfaces/appInterfaces'
   export let newsArticle: NewsArticle
 </script>
