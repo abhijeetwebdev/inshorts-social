@@ -34,7 +34,6 @@
 
   function fbInit() {
     if (appState.news.length > 0 && !isFBLoaded) {
-      console.log('fbAsyncInit: Home')
       window.fbAsyncInit()
       isFBLoaded = true
     }

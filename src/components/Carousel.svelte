@@ -15,21 +15,26 @@
 
   // Custom events for next and prev clicks
   const goToNext = () => {
-    dispatch('currentSlide', currentIndex)
+    commonActions()
     currentIndex = (currentIndex + 1) % items.length
     dispatch('nextClicked', currentIndex) // Emit custom event
   }
 
   const goToPrev = () => {
-    dispatch('currentSlide', currentIndex)
+    commonActions()
     currentIndex = (currentIndex - 1 + items.length) % items.length
     dispatch('prevClicked', currentIndex) // Emit custom event
   }
 
   const goToIndex = (index: number) => {
-    dispatch('currentSlide', currentIndex)
+    commonActions()
     currentIndex = index
     dispatch('indexChanged', currentIndex) // Emit event when the slide changes
+  }
+
+  const commonActions = () => {
+    resetInterval()
+    dispatch('currentSlide', currentIndex)
   }
 
   // Auto slide functionality
@@ -40,10 +45,16 @@
   // Set up the interval for automatic slide change
   $: {
     if (items.length > 0) {
-      // Reset the timer whenever `interval` or `items` change
-      clearInterval(timer)
-      timer = setInterval(goToNext, interval)
+      resetInterval()
     }
+  }
+
+  function resetInterval() {
+    // Reset the timer whenever `interval` or `items` change
+    if (timer) clearInterval(timer)
+    timer = setInterval(() => {
+      goToNext()
+    }, interval)
   }
 </script>
 
