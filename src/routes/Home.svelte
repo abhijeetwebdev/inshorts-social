@@ -7,6 +7,7 @@
 
   // data for the carousel
   let carouselItems: NewsArticle[] = []
+  let activeSlideIndex = 0
   let appState: AppState
   let isFBLoaded = false
 
@@ -27,12 +28,26 @@
         carouselItems = [...appState.news]
       }
 
-      if (appState.news.length > 0 && !isFBLoaded) {
-        window.fbAsyncInit()
-        isFBLoaded = true
-        // console.log('fbAsyncInit: Home')
-      }
+      fbInit()
     })
+  }
+
+  function fbInit() {
+    if (appState.news.length > 0 && !isFBLoaded) {
+      console.log('fbAsyncInit: Home')
+      window.fbAsyncInit()
+      isFBLoaded = true
+    }
+  }
+
+  async function onCurrentSlide(index: any) {
+    if (Number(index) >= carouselItems.length - 1) {
+      await fetchNews(appState.newsOffset)
+      activeSlideIndex = index
+      // reset FB loaded to re-init for newly loaded items
+      isFBLoaded = false
+      fbInit()
+    }
   }
 </script>
 
@@ -40,6 +55,11 @@
   {#if appState.loading}
     <PreloaderCard></PreloaderCard>
   {:else}
-    <Carousel items={carouselItems} interval={20000} />
+    <Carousel
+      on:currentSlide={(e) => {
+        onCurrentSlide(e.detail)
+      }}
+      items={carouselItems}
+    />
   {/if}
 </div>

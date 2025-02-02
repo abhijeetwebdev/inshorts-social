@@ -1,11 +1,12 @@
 <script lang="ts">
   import { onDestroy } from 'svelte'
-  import { createEventDispatcher } from 'svelte'
   import NewsCard from './NewsCard.svelte'
+  import { createEventDispatcher } from 'svelte'
   import type { NewsArticle } from '../interfaces/appInterfaces'
+  import { newsItemsPerSlide, newsSliderInterval } from '../utils/constants'
 
   export let items: NewsArticle[] = []
-  export let interval: number = 3000
+  export let interval = newsSliderInterval
 
   let currentIndex = 0
   let timer: ReturnType<typeof setInterval>
@@ -14,16 +15,19 @@
 
   // Custom events for next and prev clicks
   const goToNext = () => {
+    dispatch('currentSlide', currentIndex)
     currentIndex = (currentIndex + 1) % items.length
     dispatch('nextClicked', currentIndex) // Emit custom event
   }
 
   const goToPrev = () => {
+    dispatch('currentSlide', currentIndex)
     currentIndex = (currentIndex - 1 + items.length) % items.length
     dispatch('prevClicked', currentIndex) // Emit custom event
   }
 
   const goToIndex = (index: number) => {
+    dispatch('currentSlide', currentIndex)
     currentIndex = index
     dispatch('indexChanged', currentIndex) // Emit event when the slide changes
   }
@@ -56,7 +60,16 @@
   </div>
 
   <div class="carousel-controls">
-    <button class="carousel-button" on:click={goToPrev}>&nbsp;❮&nbsp;</button>
+    <button
+      disabled={currentIndex === 0}
+      class="carousel-button"
+      on:click={goToPrev}>&nbsp;❮&nbsp;</button
+    >
+    <!-- <button
+      disabled={currentIndex === newsItemsPerSlide - 1}
+      class="carousel-button"
+      on:click={goToNext}>&nbsp;❯&nbsp;</button
+    > -->
     <button class="carousel-button" on:click={goToNext}>&nbsp;❯&nbsp;</button>
   </div>
 </div>
@@ -101,5 +114,9 @@
 
   .active {
     background-color: black;
+  }
+
+  button:disabled {
+    visibility: hidden;
   }
 </style>

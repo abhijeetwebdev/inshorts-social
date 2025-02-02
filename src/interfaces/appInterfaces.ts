@@ -2,6 +2,7 @@ export interface AppState {
   news: NewsArticle[]
   loading: boolean
   error: string | null
+  newsOffset: string
 }
 
 export interface NewsAPIResponse {

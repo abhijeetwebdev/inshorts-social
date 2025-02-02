@@ -46,7 +46,7 @@
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
   }
 
   .card-wrapper {
