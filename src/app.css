@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 .container {
-  /* width: 960px; */
-  width: 1024px;
+  max-width: 1024px;
 }
 
 .pointer {

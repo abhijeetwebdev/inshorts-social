@@ -7,11 +7,11 @@
     <a class="pointer" href="/">
       <h2 class="flex items-center">
         <img src="/favicon.png" alt="" />
-        Inshorts Social
+        Social
       </h2>
     </a>
     |
-    <a class="pointer" href="/privacy">Privacy Policy</a>
+    <a class="pointer" href="/privacy">Policy</a>
     |
     <a class="pointer" href="/about">About</a>
   </div>

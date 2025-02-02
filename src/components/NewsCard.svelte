@@ -5,13 +5,13 @@
 </script>
 
 <div class="card">
-  <div class="card flex card-wrapper">
+  <div class="card flex flex-col md:flex-row card-wrapper">
     <div
-      class="image-wrapper bg-cover bg-center rounded-l-md"
+      class="image-wrapper bg-cover bg-center bg-no-repeat rounded-t-md md:rounded-l-md"
       style="background-image: url('{newsArticle.imageURL}');"
       aria-label={newsArticle.title}
     ></div>
-    <div class="content-wrapper w-3/5 p-4">
+    <div class="content-wrapper w-full md:w-3/5 p-4">
       <h3 class="pt-2"><strong>{newsArticle.title}</strong></h3>
       <p class="pt-2 time">
         {new Date(newsArticle.createdAt).toLocaleString()}
@@ -20,6 +20,7 @@
       <p class="pt-2 categories">{newsArticle.categoryNames.join(', ')}</p>
     </div>
   </div>
+
   <!-- FB like and comment -->
   <div class="fb-wrapper">
     <div
@@ -56,16 +57,15 @@
   }
 
   .image-wrapper {
-    height: 20rem;
-    width: 40%;
+    width: 100%;
+    min-height: 20rem;
     border-radius: 0.5rem 0 0 0;
   }
 
   .content-wrapper {
-    /* min-height: 20rem; */
-    height: 20rem;
+    height: auto;
     overflow-y: auto;
-    width: 60%;
+    width: 100%;
     padding: 1rem;
   }
 

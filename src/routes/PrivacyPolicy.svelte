@@ -2,7 +2,7 @@
 <div class="container mx-auto p-6">
   <!-- Header Section -->
   <header class="text-center mb-6">
-    <h1 class="text-4xl font-bold">Privacy Policy</h1>
+    <h1 class="text-4xl font-bold text-gray-600">Privacy Policy</h1>
   </header>
 
   <!-- Introduction -->
@@ -129,7 +129,10 @@
     <h2 class="text-2xl font-semibold text-gray-700 mb-4">9. Contact Us</h2>
     <p class="text-lg text-gray-600">
       If you have any questions or concerns about this privacy policy, please
-      contact us at: <br /> <strong>abhijeetwebdev@gmail.com</strong>
+      contact us at: <br />
+      <a href="mailto:abhijeetwebdev@gmail.com" class="text-blue-500"
+        >abhijeetwebdev@gmail.com</a
+      >
     </p>
   </section>
 

@@ -1,4 +1,4 @@
-<div class="card flex">
+<div class="card flex flex-col md:flex-row">
   <div class="skeleton image-wrapper"></div>
   <div class="content-wrapper">
     <div class="skeleton skeleton-title"></div>
@@ -23,6 +23,13 @@
     background-color: white;
   }
 
+  /* Flexbox layout for responsiveness */
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Skeleton Animation */
   .skeleton {
     animation: pulse 1.5s infinite;
     background-color: #e0e0e0;
@@ -54,15 +61,19 @@
     width: 40%;
   }
 
+  /* Image Wrapper */
   .image-wrapper {
+    width: 100%;
+    min-height: 20rem;
     border-radius: 0.5rem 0 0 0;
-    height: 20rem;
-    width: 40%;
   }
 
+  /* Content Wrapper */
   .content-wrapper {
-    margin: 1rem;
-    width: 60%;
+    height: auto;
+    overflow-y: auto;
+    width: 100%;
+    padding: 1rem;
   }
 
   .skeleton-title {
@@ -77,6 +88,13 @@
   .skeleton-title:nth-of-type(2) {
     margin-top: 0.5rem;
     width: 50%;
+  }
+
+  /* Responsive adjustments for mobile and large screens */
+  @media (min-width: 768px) {
+    .card {
+      flex-direction: row;
+    }
   }
 
   @keyframes pulse {
