@@ -1,21 +1,17 @@
 <script lang="ts">
-  import { navigate } from 'svelte-routing'
   import '../app.css'
 </script>
 
 <header>
   <div class="container mx-md m-auto">
-    <a
-      class="pointer"
-      on:click={() => {
-        navigate('/')
-      }}
-    >
-      <h2 class="flex items-center pl-4 pr-4">
+    <a class="pointer" href="/">
+      <h2 class="flex items-center">
         <img src="/favicon.png" alt="" />
         Inshorts Social
       </h2>
     </a>
+    |
+    <a class="pointer" href="/about">About</a>
   </div>
 </header>
 
@@ -34,5 +30,14 @@
   img {
     height: 1.5rem;
     padding-right: 0.5rem;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  a {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 </style>
