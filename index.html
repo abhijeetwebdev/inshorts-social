@@ -9,5 +9,32 @@
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+
+    <div id="fb-root"></div>
+    <script>
+      let fbLoaded = false
+
+      const loadFBSDK = () => {
+        if (fbLoaded) return
+
+        fbLoaded = true
+
+        window.fbAsyncInit = function () {
+          FB.init({
+            appId: '160132971061744', // Replace with your App ID
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v21.0', // Use the latest version
+          })
+        }
+
+        const script = document.createElement('script')
+        script.src = 'https://connect.facebook.net/en_US/sdk.js'
+        script.async = true
+        document.body.appendChild(script)
+      }
+
+      loadFBSDK()
+    </script>
   </body>
 </html>
