@@ -49,8 +49,8 @@ export const setLocalStorageItem = (name: string, value: string) => {
 }
 
 // Generic fn to get local storage item
-export const getLocalStorageItem = async (name: string): Promise<string> => {
-  let data = (await localStorage.getItem(name)) || ''
+export const getLocalStorageItem = (name: string): string => {
+  let data = localStorage.getItem(name) || ''
   try {
     // Try to parse the input as JSON
     return JSON.parse(data)

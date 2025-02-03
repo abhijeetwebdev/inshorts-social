@@ -11,7 +11,6 @@
 
   let currentIndex = 0
   let timer: ReturnType<typeof setInterval>
-
   const dispatch = createEventDispatcher()
 
   // Custom events for next and prev clicks
@@ -30,6 +29,7 @@
   }
 
   const updateViewedNewsId = () => {
+    console.log('updateViewedNewsId')
     if (items.length > 0) {
       let article = items[currentIndex - 1]
       if (article) {
@@ -39,7 +39,6 @@
   }
 
   const goToIndex = (index: number) => {
-    console.log('goToIndex: ', index)
     resetInterval()
     currentIndex = index
     dispatch('indexChanged', currentIndex) // Emit event when the slide changes
