@@ -8,7 +8,7 @@ export const transformResponseData = (
   data: INewsAPIRespArticle[]
 ): INewsArticle[] => {
   return data.map((item) => ({
-    hashID: item.hash_id,
+    newsId: item.hash_id,
     title: item.news_obj.title,
     authorName: item.news_obj.author_name,
     content: item.news_obj.content,
@@ -41,4 +41,21 @@ const formattedDate = (timestamp: number): string => {
 
 const formattedCategories = (categories: string[]): string[] => {
   return categories.map((cat) => `#${cat}`)
+}
+
+// Generic fn to set local storage item
+export const setLocalStorageItem = (name: string, value: string) => {
+  localStorage.setItem(name, value)
+}
+
+// Generic fn to get local storage item
+export const getLocalStorageItem = async (name: string): Promise<string> => {
+  let data = (await localStorage.getItem(name)) || ''
+  try {
+    // Try to parse the input as JSON
+    return JSON.parse(data)
+  } catch (e) {
+    // If parsing fails, return the original string
+    return data
+  }
 }

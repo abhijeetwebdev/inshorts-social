@@ -4,6 +4,7 @@
   import { createEventDispatcher } from 'svelte'
   import type { INewsArticle } from '../interfaces/appInterfaces'
   import { newsSliderInterval } from '../utils/constants'
+  import * as appStore from '../store/appStore'
 
   export let items: INewsArticle[] = []
   export let interval = newsSliderInterval
@@ -15,26 +16,33 @@
 
   // Custom events for next and prev clicks
   const goToNext = () => {
-    commonActions()
+    resetInterval()
     currentIndex = (currentIndex + 1) % items.length
     dispatch('nextClicked', currentIndex) // Emit custom event
+    updateViewedNewsId()
   }
 
   const goToPrev = () => {
-    commonActions()
+    resetInterval()
     currentIndex = (currentIndex - 1 + items.length) % items.length
     dispatch('prevClicked', currentIndex) // Emit custom event
+    updateViewedNewsId()
+  }
+
+  const updateViewedNewsId = () => {
+    if (items.length > 0) {
+      let article = items[currentIndex - 1]
+      if (article) {
+        appStore.updateViewedNewsId(article.newsId)
+      }
+    }
   }
 
   const goToIndex = (index: number) => {
-    commonActions()
+    console.log('goToIndex: ', index)
+    resetInterval()
     currentIndex = index
     dispatch('indexChanged', currentIndex) // Emit event when the slide changes
-  }
-
-  const commonActions = () => {
-    resetInterval()
-    dispatch('currentSlide', currentIndex)
   }
 
   // Auto slide functionality
@@ -50,6 +58,7 @@
   }
 
   function resetInterval() {
+    dispatch('currentSlide', currentIndex)
     if (interval) {
       // Reset the timer whenever `interval` or `items` change
       if (timer) clearInterval(timer)

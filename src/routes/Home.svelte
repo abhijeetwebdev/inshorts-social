@@ -8,7 +8,6 @@
 
   // data for the carousel
   let carouselItems: INewsArticle[] = []
-  let activeSlideIndex = 0
   let appState: IAppState
   let isFBLoaded = false
 
@@ -42,8 +41,7 @@
 
   const onCurrentSlide = async (index: any) => {
     if (Number(index) >= carouselItems.length - 1) {
-      await fetchNews(appState.newsOffset)
-      activeSlideIndex = index
+      await fetchNews()
       // reset FB loaded to re-init for newly loaded items
       isFBLoaded = false
       fbInit()

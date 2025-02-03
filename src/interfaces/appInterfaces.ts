@@ -2,7 +2,7 @@ export interface IAppState {
   news: INewsArticle[]
   loading: boolean
   error: string | null
-  newsOffset: string
+  viewedNewsId: string
   imageModal: IImageModal
 }
 
@@ -35,7 +35,7 @@ export interface INewsAPIRespArticle {
 }
 
 export interface INewsArticle {
-  hashID: string
+  newsId: string
   title: string
   authorName: string
   content: string
@@ -44,8 +44,4 @@ export interface INewsArticle {
   imageURL: string
   categoryNames: string[]
   createdAt: string
-}
-
-export interface INewsParams {
-  id: string
 }
