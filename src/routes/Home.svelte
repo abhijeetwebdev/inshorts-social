@@ -4,6 +4,7 @@
   import type { IAppState, INewsArticle } from '../interfaces/appInterfaces'
   import PreloaderCard from '../components/PreloaderCard.svelte'
   import Carousel from '../components/Carousel.svelte'
+  import ImageModal from '../components/ImageModal.svelte'
 
   // data for the carousel
   let carouselItems: INewsArticle[] = []
@@ -62,3 +63,5 @@
     />
   {/if}
 </div>
+
+<ImageModal />

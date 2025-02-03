@@ -1,5 +1,6 @@
 <script lang="ts">
   import { fbBaseUrl } from '../utils/constants'
+  import { openImageModal } from '../store/appStore'
   import type { INewsArticle } from '../interfaces/appInterfaces'
   export let newsArticle: INewsArticle
 </script>
@@ -7,6 +8,7 @@
 <div class="card">
   <div class="card flex flex-col md:flex-row card-wrapper">
     <div
+      on:click={openImageModal(newsArticle.imageURL)}
       class="image-wrapper bg-cover bg-center bg-no-repeat rounded-t-md md:rounded-l-md"
       style="background-image: url('{newsArticle.imageURL}');"
       aria-label={newsArticle.title}

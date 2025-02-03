@@ -8,6 +8,10 @@ const initialState: IAppState = {
   loading: false,
   error: null,
   newsOffset: '', // tracking the news_offset for pagination
+  imageModal: {
+    url: '',
+    isOpen: false,
+  },
 }
 
 // creating a store to read/write app data at one place
@@ -59,6 +63,27 @@ export const fetchNews = async (newsOffset: string = '') => {
       error: '[API] Get news call failed!',
     }))
   }
+}
+
+// Image modal events and data handling
+export const openImageModal = async (url: string = '') => {
+  appStore.update((state) => ({
+    ...state,
+    imageModal: {
+      url: url,
+      isOpen: true,
+    },
+  }))
+}
+
+export const closeImageModal = async () => {
+  appStore.update((state) => ({
+    ...state,
+    imageModal: {
+      url: '',
+      isOpen: false,
+    },
+  }))
 }
 
 export default appStore

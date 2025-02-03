@@ -3,6 +3,12 @@ export interface IAppState {
   loading: boolean
   error: string | null
   newsOffset: string
+  imageModal: IImageModal
+}
+
+export interface IImageModal {
+  url: string
+  isOpen: Boolean
 }
 
 export interface INewsAPIResponse {
