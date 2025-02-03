@@ -16,7 +16,7 @@ const initialState: IAppState = {
     url: '',
     isOpen: false,
   },
-  viewedNewsId: await getLocalStorageItem(viewedNewsIdStorageName), // getting the pagination state from local storage
+  viewedNewsId: getLocalStorageItem(viewedNewsIdStorageName),
 }
 // creating a store to read/write app data at one place
 const appStore = writable<IAppState>(initialState)
@@ -45,7 +45,6 @@ export const fetchNews = async () => {
         appStore.update((state) => {
           // update the pagination offset to app state and local storage
           let newsId = data.data.min_news_id
-          setLocalStorageItem(viewedNewsIdStorageName, newsId)
           return {
             ...state,
             news: transformResponseData(data.data.news_list),
