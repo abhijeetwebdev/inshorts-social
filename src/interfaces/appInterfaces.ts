@@ -1,19 +1,19 @@
-export interface AppState {
-  news: NewsArticle[]
+export interface IAppState {
+  news: INewsArticle[]
   loading: boolean
   error: string | null
   newsOffset: string
 }
 
-export interface NewsAPIResponse {
+export interface INewsAPIResponse {
   data: {
     min_news_id: string
-    news_list: NewsAPIRespArticle[]
+    news_list: INewsAPIRespArticle[]
   }
   error: boolean
 }
 
-export interface NewsAPIRespArticle {
+export interface INewsAPIRespArticle {
   hash_id: string
   news_type: string
   news_obj: {
@@ -28,7 +28,7 @@ export interface NewsAPIRespArticle {
   }
 }
 
-export interface NewsArticle {
+export interface INewsArticle {
   hashID: string
   title: string
   authorName: string
@@ -40,6 +40,6 @@ export interface NewsArticle {
   createdAt: string
 }
 
-export interface NewsParams {
+export interface INewsParams {
   id: string
 }

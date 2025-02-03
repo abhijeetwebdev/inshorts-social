@@ -1,12 +1,12 @@
 import type {
-  NewsArticle,
-  NewsAPIRespArticle,
+  INewsArticle,
+  INewsAPIRespArticle,
 } from '../interfaces/appInterfaces'
 
 // transforming the API response news articles to UI articles
 export const transformResponseData = (
-  data: NewsAPIRespArticle[]
-): NewsArticle[] => {
+  data: INewsAPIRespArticle[]
+): INewsArticle[] => {
   return data.map((item) => ({
     hashID: item.hash_id,
     title: item.news_obj.title,
@@ -22,10 +22,10 @@ export const transformResponseData = (
 
 // transforming array to grouped array
 export const chunkArray = (
-  array: NewsArticle[],
+  array: INewsArticle[],
   size: number
-): NewsArticle[][] => {
-  return array.reduce<NewsArticle[][]>((acc, _, index) => {
+): INewsArticle[][] => {
+  return array.reduce<INewsArticle[][]>((acc, _, index) => {
     if (index % size === 0) {
       acc.push([])
     }

@@ -2,10 +2,10 @@
   import { onDestroy } from 'svelte'
   import NewsCard from './NewsCard.svelte'
   import { createEventDispatcher } from 'svelte'
-  import type { NewsArticle } from '../interfaces/appInterfaces'
-  import { newsItemsPerSlide, newsSliderInterval } from '../utils/constants'
+  import type { INewsArticle } from '../interfaces/appInterfaces'
+  import { newsSliderInterval } from '../utils/constants'
 
-  export let items: NewsArticle[] = []
+  export let items: INewsArticle[] = []
   export let interval = newsSliderInterval
 
   let currentIndex = 0

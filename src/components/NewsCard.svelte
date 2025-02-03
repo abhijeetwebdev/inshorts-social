@@ -1,7 +1,7 @@
 <script lang="ts">
   import { fbBaseUrl } from '../utils/constants'
-  import type { NewsArticle } from '../interfaces/appInterfaces'
-  export let newsArticle: NewsArticle
+  import type { INewsArticle } from '../interfaces/appInterfaces'
+  export let newsArticle: INewsArticle
 </script>
 
 <div class="card">

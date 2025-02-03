@@ -1,9 +1,9 @@
 import { writable } from 'svelte/store'
-import type { AppState, NewsAPIResponse } from '../interfaces/appInterfaces'
+import type { IAppState, INewsAPIResponse } from '../interfaces/appInterfaces'
 import { transformResponseData } from '../utils/helper'
 import { newsItemsPerSlide } from '../utils/constants'
 
-const initialState: AppState = {
+const initialState: IAppState = {
   news: [],
   loading: false,
   error: null,
@@ -11,7 +11,7 @@ const initialState: AppState = {
 }
 
 // creating a store to read/write app data at one place
-const appStore = writable<AppState>(initialState)
+const appStore = writable<IAppState>(initialState)
 
 // fn to make get news API call
 export const fetchNews = async (newsOffset: string = '') => {
@@ -31,7 +31,7 @@ export const fetchNews = async (newsOffset: string = '') => {
 
     // handling success response
     if (response.ok) {
-      const data: NewsAPIResponse = await response.json()
+      const data: INewsAPIResponse = await response.json()
 
       if (data.data.news_list.length) {
         appStore.update((state) => ({
