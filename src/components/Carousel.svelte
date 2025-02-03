@@ -29,7 +29,6 @@
   }
 
   const updateViewedNewsId = () => {
-    console.log('updateViewedNewsId')
     if (items.length > 0) {
       let article = items[currentIndex - 1]
       if (article) {
