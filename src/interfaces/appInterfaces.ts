@@ -1,19 +1,25 @@
-export interface AppState {
-  news: NewsArticle[]
+export interface IAppState {
+  news: INewsArticle[]
   loading: boolean
   error: string | null
-  newsOffset: string
+  viewedNewsId: string
+  imageModal: IImageModal
 }
 
-export interface NewsAPIResponse {
+export interface IImageModal {
+  url: string
+  isOpen: Boolean
+}
+
+export interface INewsAPIResponse {
   data: {
     min_news_id: string
-    news_list: NewsAPIRespArticle[]
+    news_list: INewsAPIRespArticle[]
   }
   error: boolean
 }
 
-export interface NewsAPIRespArticle {
+export interface INewsAPIRespArticle {
   hash_id: string
   news_type: string
   news_obj: {
@@ -28,8 +34,8 @@ export interface NewsAPIRespArticle {
   }
 }
 
-export interface NewsArticle {
-  hashID: string
+export interface INewsArticle {
+  newsId: string
   title: string
   authorName: string
   content: string
@@ -38,8 +44,4 @@ export interface NewsArticle {
   imageURL: string
   categoryNames: string[]
   createdAt: string
-}
-
-export interface NewsParams {
-  id: string
 }

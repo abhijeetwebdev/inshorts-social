@@ -1,12 +1,14 @@
 <script lang="ts">
   import { fbBaseUrl } from '../utils/constants'
-  import type { NewsArticle } from '../interfaces/appInterfaces'
-  export let newsArticle: NewsArticle
+  import { openImageModal } from '../store/appStore'
+  import type { INewsArticle } from '../interfaces/appInterfaces'
+  export let newsArticle: INewsArticle
 </script>
 
 <div class="card">
   <div class="card flex flex-col md:flex-row card-wrapper">
     <div
+      on:click={openImageModal(newsArticle.imageURL)}
       class="image-wrapper bg-cover bg-center bg-no-repeat rounded-t-md md:rounded-l-md"
       style="background-image: url('{newsArticle.imageURL}');"
       aria-label={newsArticle.title}
@@ -25,7 +27,7 @@
   <div class="fb-wrapper">
     <div
       class="fb-like"
-      data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
+      data-href="{fbBaseUrl}/news/{newsArticle.newsId}"
       data-layout="standard"
       data-action="like"
       data-size="small"
@@ -35,7 +37,7 @@
 
     <div
       class="fb-comments"
-      data-href="{fbBaseUrl}/news/{newsArticle.hashID}"
+      data-href="{fbBaseUrl}/news/{newsArticle.newsId}"
       data-numposts="5"
       data-width="100%"
     ></div>

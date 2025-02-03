@@ -1,14 +1,14 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import appStore, { fetchNews } from '../store/appStore'
-  import type { AppState, NewsArticle } from '../interfaces/appInterfaces'
+  import type { IAppState, INewsArticle } from '../interfaces/appInterfaces'
   import PreloaderCard from '../components/PreloaderCard.svelte'
   import Carousel from '../components/Carousel.svelte'
+  import ImageModal from '../components/ImageModal.svelte'
 
   // data for the carousel
-  let carouselItems: NewsArticle[] = []
-  let activeSlideIndex = 0
-  let appState: AppState
+  let carouselItems: INewsArticle[] = []
+  let appState: IAppState
   let isFBLoaded = false
 
   onMount(() => {
@@ -32,17 +32,16 @@
     })
   }
 
-  function fbInit() {
+  const fbInit = () => {
     if (appState.news.length > 0 && !isFBLoaded) {
       window.fbAsyncInit()
       isFBLoaded = true
     }
   }
 
-  async function onCurrentSlide(index: any) {
+  const onCurrentSlide = async (index: any) => {
     if (Number(index) >= carouselItems.length - 1) {
-      await fetchNews(appState.newsOffset)
-      activeSlideIndex = index
+      await fetchNews()
       // reset FB loaded to re-init for newly loaded items
       isFBLoaded = false
       fbInit()
@@ -62,3 +61,5 @@
     />
   {/if}
 </div>
+
+<ImageModal />

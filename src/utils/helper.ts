@@ -1,14 +1,14 @@
 import type {
-  NewsArticle,
-  NewsAPIRespArticle,
+  INewsArticle,
+  INewsAPIRespArticle,
 } from '../interfaces/appInterfaces'
 
 // transforming the API response news articles to UI articles
 export const transformResponseData = (
-  data: NewsAPIRespArticle[]
-): NewsArticle[] => {
+  data: INewsAPIRespArticle[]
+): INewsArticle[] => {
   return data.map((item) => ({
-    hashID: item.hash_id,
+    newsId: item.hash_id,
     title: item.news_obj.title,
     authorName: item.news_obj.author_name,
     content: item.news_obj.content,
@@ -22,10 +22,10 @@ export const transformResponseData = (
 
 // transforming array to grouped array
 export const chunkArray = (
-  array: NewsArticle[],
+  array: INewsArticle[],
   size: number
-): NewsArticle[][] => {
-  return array.reduce<NewsArticle[][]>((acc, _, index) => {
+): INewsArticle[][] => {
+  return array.reduce<INewsArticle[][]>((acc, _, index) => {
     if (index % size === 0) {
       acc.push([])
     }
@@ -41,4 +41,21 @@ const formattedDate = (timestamp: number): string => {
 
 const formattedCategories = (categories: string[]): string[] => {
   return categories.map((cat) => `#${cat}`)
+}
+
+// Generic fn to set local storage item
+export const setLocalStorageItem = (name: string, value: string) => {
+  localStorage.setItem(name, value)
+}
+
+// Generic fn to get local storage item
+export const getLocalStorageItem = async (name: string): Promise<string> => {
+  let data = (await localStorage.getItem(name)) || ''
+  try {
+    // Try to parse the input as JSON
+    return JSON.parse(data)
+  } catch (e) {
+    // If parsing fails, return the original string
+    return data
+  }
 }
