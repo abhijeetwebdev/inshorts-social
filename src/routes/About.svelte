@@ -7,7 +7,7 @@
 
   <!-- Project Description -->
   <section class="mb-6">
-    <p class="text-lg text-gray-600">
+    <p class="text-gray-600">
       <strong>Inshorts Social</strong> is a hobby project that is created to
       address the need for user engagement with Inshorts news articles. By
       adding
@@ -22,7 +22,7 @@
   <!-- Links -->
   <section class="mb-6">
     <h2 class="text-2xl font-semibold text-gray-700 mb-4">Links</h2>
-    <ul class="list-disc pl-6 space-y-2 text-lg text-gray-600">
+    <ul class="list-disc pl-6 space-y-2 text-gray-600">
       <li>
         Frontend framework: <a target="_blank" href="https://svelte.dev"
           ><strong>Svelte (TypeScript)</strong></a
@@ -47,7 +47,7 @@
   <!-- Contact Section -->
   <section class="mb-12">
     <h2 class="text-2xl font-semibold text-gray-700 mb-4">Contact</h2>
-    <p class="text-lg text-gray-600">
+    <p class="text-gray-600">
       For suggestions/inquiries, email: <a
         href="mailto:abhijeetwebdev@gmail.com"
         class="text-blue-500">abhijeetwebdev@gmail.com</a
