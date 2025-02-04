@@ -49,7 +49,9 @@
   }
 </script>
 
-<div class="container mx-md m-auto p-5 pt-0 mb-16 mt-8">
+<div
+  class="container mx-md m-auto p-4 pt-0 mb-8 sm:mb-16 mt-4 sm:mt-8 lg:mt-12"
+>
   {#if appState.loading}
     <PreloaderCard></PreloaderCard>
   {:else}

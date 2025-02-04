@@ -9,7 +9,7 @@
   <div class="card flex flex-col md:flex-row card-wrapper">
     <div
       on:click={openImageModal(newsArticle.imageURL)}
-      class="image-wrapper bg-cover bg-center bg-no-repeat rounded-t-md md:rounded-l-md"
+      class="image-wrapper bg-cover bg-center bg-no-repeat"
       style="background-image: url('{newsArticle.imageURL}');"
       aria-label={newsArticle.title}
     ></div>
@@ -48,20 +48,20 @@
   .card {
     background-color: white;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
   }
 
   .card-wrapper {
     border: none;
     border-bottom: 1px solid #ccc;
-    border-radius: 0.5rem 0.5rem 0 0;
+    border-radius: 0.25rem 0.25rem 0 0;
   }
 
   .image-wrapper {
     width: 100%;
     min-height: 20rem;
-    border-radius: 0.5rem 0 0 0;
+    border-radius: 0.25rem;
   }
 
   .content-wrapper {
