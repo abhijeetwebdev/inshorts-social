@@ -2,6 +2,7 @@ import type {
   INewsArticle,
   INewsAPIRespArticle,
 } from '../interfaces/appInterfaces'
+import { viewedDate, viewedNewsIdStorageName } from './constants'
 
 // transforming the API response news articles to UI articles
 export const transformResponseData = (
@@ -57,5 +58,18 @@ export const getLocalStorageItem = (name: string): string => {
   } catch (e) {
     // If parsing fails, return the original string
     return data
+  }
+}
+
+// Function to clear localStorage if it's a new day
+export const clearViewedNewsIdIfNewDay = () => {
+  const lastClearDate = localStorage.getItem(viewedDate)
+  const currentDate = new Date().toISOString().split('T')[0] // Get current date in YYYY-MM-DD format
+
+  if (lastClearDate !== currentDate) {
+    // It's a new day, so clear localStorage items
+    localStorage.removeItem(viewedNewsIdStorageName) // Or other items you want to delete
+    // Set the current date as the "last cleared date"
+    localStorage.setItem(viewedDate, currentDate)
   }
 }

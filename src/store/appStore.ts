@@ -4,8 +4,12 @@ import {
   getLocalStorageItem,
   setLocalStorageItem,
   transformResponseData,
+  clearViewedNewsIdIfNewDay,
 } from '../utils/helper'
 import { newsItemsPerSlide, viewedNewsIdStorageName } from '../utils/constants'
+
+// Clearing last viewed news id if it's a new day (this is to load fresh news by not sending the news offset param)
+clearViewedNewsIdIfNewDay()
 
 // Initializing the app store to manage app data
 const initialState: IAppState = {
