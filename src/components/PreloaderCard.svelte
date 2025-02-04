@@ -16,7 +16,7 @@
 <style>
   .card {
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border-radius: 0.25rem;
     padding: 0;
     box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
@@ -65,7 +65,7 @@
   .image-wrapper {
     width: 100%;
     min-height: 20rem;
-    border-radius: 0.5rem 0 0 0;
+    border-radius: 0.25rem;
   }
 
   /* Content Wrapper */
